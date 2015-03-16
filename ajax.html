@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CMPT 470 Technology Evaluation Demo Website">
+    <meta name="author" content="Group 1">
+
+    <title>jQuery Demonstration</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" type="text/css" href="css/ui.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      jQuery Demonstration - Welcome to the Matrix
+    </div>
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <img alt="sidebar1" src='images/sidebar.jpg'>
+        <ul class="sidebar-nav">
+            <li><a href="http://cmpt470.csil.sfu.ca/~bcpark/overview.html">Overview</a>
+            </li>
+            <li><a href="http://cmpt470.csil.sfu.ca/~bcpark/adding.html">Adding jQuery</a>
+            </li>
+            <li><a href="http://cmpt470.csil.sfu.ca/~bcpark/syntax.html">Syntax</a>
+            </li>
+            <li><a href="http://cmpt470.csil.sfu.ca/~bcpark/dom.html">DOM Traversal</a>
+            </li>
+            <li><a href="http://cmpt470.csil.sfu.ca/~bcpark/events.html">Event Handling</a>
+            </li>
+            <li><a href="http://cmpt470.csil.sfu.ca/~bcpark/effects.html">Special Effects</a>
+            </li>
+            <li><div class="selection"><a href="http://cmpt470.csil.sfu.ca/~bcpark/ajax.html">AJAX</a></div>
+            </li>
+            <li><a href="http://cmpt470.csil.sfu.ca/~kclaw/Comparison.htm">Comparisons</a>
+            </li>
+        </ul>
+        <img src='images/sidebar2.jpg' alt="sidebar2" id="sidebar2">
+      </div>
+
+      <!-- Page content -->
+      <div id="page-content-wrapper">
+        <div class="content-header">
+            <h1>
+                <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+                AJAX
+            </h1>
+        </div>
+        <div class="page-content inset">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="holder">
+                <div id="AJAX1">
+                  <p class="instructions">Now that the training is over, I'd like to have a nice picnic with you somewhere in the matrix.  We're going to use AJAX to find out the temperature of our destination.  Click "Next" to continue.</p>
+                  <button type="button" class="btn btn-success" onclick="AJAX1()">Next</button>
+                </div>
+                <div id="AJAX2">
+                  <p class="instructions">The code above your head contains an AJAX request for the temperature of Cedar Rapids. Click the "Get Temperature" button to send an asynchronous HTTP Request for the data. </p>
+                </div>
+                <div id="AJAX3">
+                  <p class="instructions">See how we sent that HTTP request without refreshing the browser? That's the power of AJAX!<br><br>  Now, let's step through that portal and learn more about how other client-side tools compare with jQuery. There are many client-side tools out there that can help you make dynamic websites.  jQuery is one tool of many!</p>
+                </div>
+                <img id="morph" alt="morpheus" src='images/morph.png'>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="holder">
+                <div id="AJAX4">
+                  <p class="instructions">
+                    $.ajax({ <br>
+                      url : "http://api.wunderground.com/api/904095f73048bf08/geolookup/
+                      conditions/q/IA/Cedar_Rapids.json", <br>
+                      dataType : "jsonp", <br>
+                      success : function(parsed_json) { <br>
+                      var location = parsed_json['location']['city']; <br>
+                      var temp_f = parsed_json['current_observation']['temp_f']; <br>
+                      alert("Current temperature in " + location + " is: " + temp_f); <br>
+                      }
+                      });</p>
+                      <button type="button" class="btn btn-success" onclick="AJAX2()">Get Temperature</button>
+                </div>
+                <img id="neo" alt="neo" src='images/neo.png'>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="holder">
+                <div id="weather" class="instructions"></div>
+                <img id="portal" alt="portal" src='images/portal.jpg'>
+                <button type="button" class="btn btn-success" id="pButton" onclick="location.href='http://cmpt470.csil.sfu.ca/~kclaw/Comparison.htm';">Step through portal</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    <div class="footer"></div>
+
+    <!-- CDN Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="script/ui.js" type="text/javascript"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+  </body>
+</html>
